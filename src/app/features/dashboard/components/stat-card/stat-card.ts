@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-stat-card',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './stat-card.css',
 })
 export class StatCard {
-
+  @Input() title: string = '';
+  @Input() value: string = '';
+  @Input() badgeText: string = '';
+  @Input() badgeType: 'success' | 'danger' | 'neutral' = 'neutral';
+  @Input() iconClass: string = '';
 }

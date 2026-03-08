@@ -1,1 +1,13 @@
-<p>stat-card works!</p>
+<div class="stat-card">
+    <div class="card-header">
+        <div class="icon-wrapper">
+            <i [class]="iconClass"></i>
+        </div>
+        <span class="badge" [ngClass]="badgeType"> {{ badgeText }}</span>
+    </div>
+
+    <div class="card-body">
+        <span class="title">{{ title }}</span>
+        <h3 class="value>{{ value }}"></h3>
+    </div>
+</div>

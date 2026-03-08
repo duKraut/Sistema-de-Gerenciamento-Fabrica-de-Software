@@ -1,0 +1,78 @@
+<div class="dashboard-header">
+    <div class="title-area">
+        <h1>Visão Geral</h1>
+        <p>Bem-vindo ao painel de controle central</p>
+    </div>
+    <button class="btn-primary">
+        <i class="ph ph-plus"></i>
+        Novo Ativo
+    </button>
+</div>
+
+<div class="stats-grid">
+  <app-stat-card 
+    title="Itens em Estoque" 
+    value="12.450" 
+    badgeText="+2.4%" 
+    badgeType="success" 
+    iconClass="ph-fill ph-archive-box">
+  </app-stat-card>
+
+  <app-stat-card 
+    title="Alertas de Estoque Baixo" 
+    value="18" 
+    badgeText="+12%" 
+    badgeType="danger" 
+    iconClass="ph-fill ph-warning">
+  </app-stat-card>
+
+  <app-stat-card 
+    title="Valor do Patrimônio" 
+    value="R$ 2.4M" 
+    badgeText="+0.8%" 
+    badgeType="success" 
+    iconClass="ph-fill ph-currency-dollar">
+  </app-stat-card>
+
+  <app-stat-card 
+    title="Ativos em Manutenção" 
+    value="12" 
+    badgeText="Estável" 
+    badgeType="neutral" 
+    iconClass="ph-fill ph-wrench">
+  </app-stat-card>
+</div> <div class="bottom-grid">
+  
+  <div class="card chart-section">
+    <div class="chart-header">
+      <h3>Consumo vs. Aquisições (Mensal)</h3>
+      <div class="chart-legend">
+        <span class="legend-item"><span class="dot blue"></span> Consumo</span>
+        <span class="legend-item"><span class="dot grey"></span> Aquisições</span>
+      </div>
+    </div>
+
+    <div class="chart-body">
+      <div class="chart-labels-x">
+        <span>Jan</span>
+        <span>Fev</span>
+        <span>Mar</span>
+        <span>Abr</span>
+        <span>Mai</span>
+        <span>Jun</span>
+      </div>
+    </div>
+  </div>
+
+<div class="card actions-section">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+    <h3>Ações Críticas</h3>
+    <span class="badge danger" style="background-color: #fee2e2; color: #991b1b; padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: bold;">ATENÇÃO</span>
+  </div>
+  
+  <app-action-list></app-action-list>
+
+  <button class="btn-outline" style="width: 100%; margin-top: 16px; padding: 12px; background: transparent; border: 1px solid #cbd5e1; color: #1a56db; font-weight: 600; border-radius: 8px; cursor: pointer;">
+    Ver Todos os Alertas
+  </button>
+</div>
