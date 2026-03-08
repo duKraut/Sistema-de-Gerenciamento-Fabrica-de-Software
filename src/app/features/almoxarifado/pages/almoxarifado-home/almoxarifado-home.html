@@ -1,0 +1,97 @@
+<div class="dashboard-header">
+  <div class="title-area">
+    <h1>Gestão de Almoxarifado</h1>
+    <p>Controle e monitoramento de itens de consumo e níveis de estoque.</p>
+  </div>
+  <div class="header-actions-btn">
+    <button class="btn-outline"><i class="ph ph-shopping-cart"></i> Registrar Saída</button>
+    <button class="btn-primary"><i class="ph ph-plus"></i> Nova Entrada</button>
+  </div>
+</div>
+
+<div class="stats-grid almoxarifado-cards">
+  <div class="card stat-box">
+    <div class="stat-top"><span>Total de SKUs</span> <i class="ph ph-archive-box" style="color: #1a56db;"></i></div>
+    <div class="stat-bottom"><h2>1.240</h2> <span class="badge success">+2.4%</span></div>
+  </div>
+  <div class="card stat-box warning-box">
+    <div class="stat-top"><span>Itens em Baixa</span> <i class="ph-fill ph-warning" style="color: #f59e0b;"></i></div>
+    <div class="stat-bottom"><h2>42</h2> <span class="badge warning-light">Revisar</span></div>
+  </div>
+  <div class="card stat-box danger-box">
+    <div class="stat-top"><span>Esgotados</span> <i class="ph-fill ph-warning-circle" style="color: #ef4444;"></i></div>
+    <div class="stat-bottom"><h2>12</h2> <span class="badge danger-light">Crítico</span></div>
+  </div>
+  <div class="card stat-box">
+    <div class="stat-top"><span>Saídas (Hoje)</span> <i class="ph-fill ph-trend-up" style="color: #8b5cf6;"></i></div>
+    <div class="stat-bottom"><h2>156</h2> <span class="badge neutral">Estável</span></div>
+  </div>
+</div>
+
+<div class="card table-container">
+  
+  <div class="filters-row">
+    <div class="filter-group flex-1">
+      <label>BUSCAR</label>
+      <div class="search-input-wrapper">
+        <i class="ph ph-magnifying-glass"></i>
+        <input type="text" placeholder="Nome do item ou SKU...">
+      </div>
+    </div>
+    <div class="filter-group">
+      <label>CATEGORIA</label>
+      <select><option>Todas</option></select>
+    </div>
+    <div class="filter-group">
+      <label>STATUS DE ESTOQUE</label>
+      <select><option>Todos os Status</option></select>
+    </div>
+    <button class="btn-text"><i class="ph ph-faders"></i> Mais Filtros</button>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>NOME DO ITEM</th>
+        <th>CATEGORIA</th>
+        <th>SALDO ATUAL</th>
+        <th>UNID.</th>
+        <th>MÍNIMO</th>
+        <th>STATUS</th>
+        <th>AÇÕES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <strong>Papel A4 Sulfite 75g</strong>
+          <span>SKU: SUP-OFF-001</span>
+        </td>
+        <td>Escritório</td>
+        <td class="text-warning font-bold">5 <i class="ph ph-arrow-down"></i></td>
+        <td>CX</td>
+        <td>10</td>
+        <td><span class="badge warning-outline">ESTOQUE BAIXO</span></td>
+        <td class="actions-td">
+          <button><i class="ph ph-clock-counter-clockwise"></i></button>
+          <button><i class="ph ph-pencil-simple"></i></button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Detergente Líquido 5L</strong>
+          <span>SKU: CLN-LIQ-042</span>
+        </td>
+        <td>Limpeza</td>
+        <td class="font-bold">24</td>
+        <td>UN</td>
+        <td>5</td>
+        <td><span class="badge success-outline">EM ESTOQUE</span></td>
+        <td class="actions-td">
+          <button><i class="ph ph-clock-counter-clockwise"></i></button>
+          <button><i class="ph ph-pencil-simple"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,5 +1,4 @@
 <aside class="sidebar">
-
     <div class="brand">
         <div class="brand-icon">
             <img src="assets/images/logo (white).png" alt="Logo do Sistema" class="logo">
@@ -11,26 +10,16 @@
     </div>
 
     <nav class="nav-menu">
-        <a href="#" class="nav-item active">
-            <i class="ph ph-squares-four"></i>
-            Dashboard
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+            <i class="ph ph-squares-four"></i> Dashboard
         </a>
-        <a href="#" class="nav-item">
-            <i class="ph ph-archive-box"></i>
-            Almoxarifado
+        <a routerLink="/almoxarifado" routerLinkActive="active" class="nav-item">
+            <i class="ph ph-archive-box"></i> Almoxarifado
         </a>
-        <a href="#" class="nav-item">
-            <i class="ph ph-suitcase-simple"></i>
-            Patrimônio
-        </a>
-        <a href="#" class="nav-item">
-            <i class="ph ph-chart-bar"></i>
-            Relatórios
-        </a>
-        <a href="#" class="nav-item active">
-            <i class="ph ph-gear"></i>
-            Configurações
-        </a>
+        
+        <a class="nav-item"><i class="ph ph-suitcase-simple"></i> Patrimônio</a>
+        <a class="nav-item"><i class="ph ph-chart-bar"></i> Relatórios</a>
+        <a class="nav-item"><i class="ph ph-gear"></i> Configurações</a>
     </nav>
 
     <div class="user-profile">
@@ -43,5 +32,4 @@
             <i class="ph ph-sign-out"></i>
         </button>
     </div>
-
 </aside>
