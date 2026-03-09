@@ -1,0 +1,50 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-almoxarifado-home',
+  standalone: false,
+  templateUrl: './almoxarifado-home.html',
+  styleUrl: './almoxarifado-home.css',
+})
+export class AlmoxarifadoHome {
+  todosItens = [
+    { nome: 'Papel A4 Sulfite 75g', sku: 'SUP-OFF-001', categoria: 'Escritório', saldo: 5, unid: 'CX', min: 10, status: 'ESTOQUE BAIXO', statusClass: 'warning-outline' },
+    { nome: 'Detergente Líquido 5L', sku: 'CLN-LIQ-042', categoria: 'Limpeza', saldo: 24, unid: 'UN', min: 5, status: 'EM ESTOQUE', statusClass: 'success-outline' },
+    { nome: 'Cabo HDMI 2.0 3m', sku: 'IT-ACC-119', categoria: 'Informática', saldo: 0, unid: 'UN', min: 2, status: 'ESGOTADO', statusClass: 'danger-outline' },
+    { nome: 'Lâmpada LED 9W Bivolt', sku: 'MAINT-LIG-004', categoria: 'Manutenção', saldo: 45, unid: 'UN', min: 12, status: 'EM ESTOQUE', statusClass: 'success-outline' },
+    { nome: 'Café Torrado e Moído 500g', sku: 'KIT-FNB-008', categoria: 'Copa & Cozinha', saldo: 8, unid: 'PCT', min: 15, status: 'ESTOQUE BAIXO', statusClass: 'warning-outline' },
+    { nome: 'Caneta Esferográfica Azul', sku: 'SUP-OFF-015', categoria: 'Escritório', saldo: 50, unid: 'CX', min: 10, status: 'EM ESTOQUE', statusClass: 'success-outline' },
+    { nome: 'Desinfetante Pinho 2L', sku: 'CLN-LIQ-055', categoria: 'Limpeza', saldo: 12, unid: 'UN', min: 10, status: 'EM ESTOQUE', statusClass: 'success-outline' },
+    { nome: 'Teclado USB Padrão', sku: 'IT-PER-099', categoria: 'Informática', saldo: 0, unid: 'UN', min: 5, status: 'ESGOTADO', statusClass: 'danger-outline' },
+    { nome: 'Fita Crepe 18mm', sku: 'SUP-OFF-088', categoria: 'Escritório', saldo: 15, unid: 'RL', min: 10, status: 'EM ESTOQUE', statusClass: 'success-outline' },
+    { nome: 'Sabonete Líquido 1L', sku: 'CLN-LIQ-012', categoria: 'Limpeza', saldo: 3, unid: 'UN', min: 10, status: 'ESTOQUE BAIXO', statusClass: 'warning-outline' }
+  ];
+
+  paginaAtual = 1;
+  itensPorPagina = 5;
+
+  get totalPaginas() {
+    return Math.ceil(this.todosItens.length / this.itensPorPagina);
+  }
+
+  get itensExibidos() {
+    const inicio = (this.paginaAtual - 1) * this.itensPorPagina;
+    return this.todosItens.slice(inicio, inicio + this.itensPorPagina);
+  }
+
+  get arrayPaginas() {
+    return Array(this.totalPaginas).fill(0).map((x, i) => i + 1);
+  }
+
+  irParaPagina(pagina: number) {
+    this.paginaAtual = pagina;
+  }
+
+  proximaPagina() {
+    if (this.paginaAtual < this.totalPaginas) this.paginaAtual++;
+  }
+
+  paginaAnterior() {
+    if (this.paginaAtual > 1) this.paginaAtual--;
+  }
+}
