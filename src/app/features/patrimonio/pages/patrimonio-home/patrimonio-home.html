@@ -1,0 +1,118 @@
+<div class="dashboard-header">
+    <div class="title-area">
+        <h1>Gestão de Patrimônio</h1>
+        <p>Controle de bens ativos e rastreamento de depreciação.</p>
+    </div>
+    <div class="header-actions-btn">
+        <button class="btn-outline"><i class="ph ph-arrows-left-right"></i> Transferir Ativo</button>
+        <button class="btn-primary"><i class="ph ph-plus"></i> Novo Patrimônio</button>
+    </div>
+</div>
+
+<div class="stats-grid patrimonio-cards">
+    <div class="card stat-box">
+        <div class="stat-top"><span>TOTAL DE ATIVOS</span></div>
+        <div class="stat-bottom">
+            <h2>1.248</h2> <span class="text-success text-sm font-bold">+12 este mês</span>
+        </div>
+    </div>
+
+    <div class="card stat-box">
+        <div class="stat-top"><span>VALOR PATRIMONIAL</span></div>
+        <div class="stat-bottom">
+            <h2>R$ 4.2M</h2>
+        </div>
+    </div>
+
+    <div class="card stat-box border-left-warning">
+        <div class="stat-top"><span>EM MANUTENÇÃO</span></div>
+        <div class="stat-bottom">
+            <h2>18</h2> <i class="ph-fill ph-warning" style="color: #f59e0b; font-size: 24px;"></i>
+        </div>
+    </div>
+
+    <div class="card stat-box border-left-danger">
+        <div class="stat-top"><span>SUBSTITUIÇÃO PENDENTE</span></div>
+        <div class="stat-bottom">
+            <h2>07</h2> <i class="ph-fill ph-calendar-x" style="color: #ef4444; font-size: 24px;"></i>
+        </div>
+    </div>
+</div>
+
+<div class="card table-container">
+
+    <div class="filters-row">
+        <div class="filter-group flex-2">
+            <div class="search-input-wrapper">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar por Tombamento ou Descrição...">
+            </div>
+        </div>
+        <div class="filter-group">
+            <select>
+                <option>Todos Departamentos</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <select>
+                <option>Estado: Todos</option>
+            </select>
+        </div>
+        <button class="btn-icon"><i class="ph ph-funnel"></i></button>
+    </div>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>TOMBAMENTO</th>
+                <th>DESCRIÇÃO</th>
+                <th>AQUISIÇÃO</th>
+                <th>DEPARTAMENTO</th>
+                <th>ESTADO</th>
+                <th>VALOR ATUAL</th>
+                <th>AÇÕES</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ativo of itensExibidos">
+                <td class="text-primary font-bold">{{ ativo.tombamento }}</td>
+                <td>
+                    <strong>
+                        {{ ativo.nome }}
+                        <i *ngIf="ativo.alerta" class="ph-fill ph-warning"
+                            style="color: #f59e0b; margin-left: 4px;"></i>
+                        <i *ngIf="ativo.perigo" class="ph-fill ph-warning-circle"
+                            style="color: #ef4444; margin-left: 4px;"></i>
+                    </strong>
+                    <span>{{ ativo.desc }}</span>
+                </td>
+                <td>{{ ativo.aquisicao }}</td>
+                <td>{{ ativo.depto }}</td>
+                <td><span class="badge" [ngClass]="ativo.estadoClass">{{ ativo.estado }}</span></td>
+                <td class="font-bold">{{ ativo.valor }}</td>
+                <td class="actions-td">
+                    <button><i class="ph ph-eye"></i></button>
+                    <button><i class="ph ph-pencil-simple"></i></button>
+                    <button><i class="ph ph-clock-counter-clockwise"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination-footer">
+        <span>Mostrando página {{ paginaAtual }} de {{ totalPaginas }} ativos</span>
+
+        <div class="pagination-buttons">
+            <button class="btn-page" (click)="paginaAnterior()" [disabled]="paginaAtual === 1"><i
+                    class="ph ph-caret-left"></i></button>
+
+            <button class="btn-page" *ngFor="let pagina of arrayPaginas" [class.active]="pagina === paginaAtual"
+                (click)="irParaPagina(pagina)">
+                {{ pagina }}
+            </button>
+
+            <button class="btn-page" (click)="proximaPagina()" [disabled]="paginaAtual === totalPaginas"><i
+                    class="ph ph-caret-right"></i></button>
+        </div>
+    </div>
+</div>
