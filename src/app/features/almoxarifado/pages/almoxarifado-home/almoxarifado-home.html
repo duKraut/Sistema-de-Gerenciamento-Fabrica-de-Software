@@ -62,31 +62,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let item of itensExibidos">
         <td>
-          <strong>Papel A4 Sulfite 75g</strong>
-          <span>SKU: SUP-OFF-001</span>
+          <strong>{{ item.nome }}</strong>
+          <span>SKU: {{ item.sku }}</span>
         </td>
-        <td>Escritório</td>
-        <td class="text-warning font-bold">5 <i class="ph ph-arrow-down"></i></td>
-        <td>CX</td>
-        <td>10</td>
-        <td><span class="badge warning-outline">ESTOQUE BAIXO</span></td>
-        <td class="actions-td">
-          <button><i class="ph ph-clock-counter-clockwise"></i></button>
-          <button><i class="ph ph-pencil-simple"></i></button>
+        <td>{{ item.categoria }}</td>
+        
+        <td [ngClass]="{'text-warning font-bold': item.saldo < item.min && item.saldo > 0, 'text-danger font-bold': item.saldo === 0, 'font-bold': item.saldo >= item.min}">
+          {{ item.saldo }} <i *ngIf="item.saldo < item.min" class="ph ph-arrow-down"></i>
         </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Detergente Líquido 5L</strong>
-          <span>SKU: CLN-LIQ-042</span>
-        </td>
-        <td>Limpeza</td>
-        <td class="font-bold">24</td>
-        <td>UN</td>
-        <td>5</td>
-        <td><span class="badge success-outline">EM ESTOQUE</span></td>
+        
+        <td>{{ item.unid }}</td>
+        <td>{{ item.min }}</td>
+        <td><span class="badge" [ngClass]="item.statusClass">{{ item.status }}</span></td>
         <td class="actions-td">
           <button><i class="ph ph-clock-counter-clockwise"></i></button>
           <button><i class="ph ph-pencil-simple"></i></button>
@@ -94,4 +83,22 @@
       </tr>
     </tbody>
   </table>
+
+  <div class="pagination-footer">
+    <span>Mostrando página {{ paginaAtual }} de {{ totalPaginas }}</span>
+    
+    <div class="pagination-buttons">
+      <button class="btn-page" (click)="paginaAnterior()" [disabled]="paginaAtual === 1">Anterior</button>
+      
+      <button class="btn-page" 
+              *ngFor="let pagina of arrayPaginas" 
+              [class.active]="pagina === paginaAtual" 
+              (click)="irParaPagina(pagina)">
+        {{ pagina }}
+      </button>
+      
+      <button class="btn-page" (click)="proximaPagina()" [disabled]="paginaAtual === totalPaginas">Próximo</button>
+    </div>
+  </div>
+
 </div>
